@@ -1,5 +1,5 @@
 FROM ruby:2.6
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
 RUN mkdir /myapp
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
